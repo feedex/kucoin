@@ -6,6 +6,7 @@ namespace Feedex\Tests;
 
 use Feedex\Kucoin\v1\Kucoin;
 use Feedex\Kucoin\v1\Modules\Common;
+use Feedex\Kucoin\v1\Modules\SpotDeal;
 use Feedex\Kucoin\v1\Modules\SpotMarket;
 use Feedex\Kucoin\v1\Modules\SpotOrder;
 use PHPUnit\Framework\TestCase;
@@ -20,5 +21,6 @@ final class KucoinTest extends TestCase
         self::assertInstanceOf(Common::class, $client->common());
         self::assertInstanceOf(SpotMarket::class, $client->spotMarket());
         self::assertInstanceOf(SpotOrder::class, $client->spotOrder());
+        self::assertInstanceOf(SpotDeal::class, $client->spotDeal());
     }
 }
