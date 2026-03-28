@@ -4,8 +4,18 @@ All notable changes to `feedex/kucoin` are documented in this file.
 
 ## [Unreleased]
 
+## [1.0.0]
+
+### Stable release
+- Promoted KuCoin adapter API surface to stable `1.0.0`.
+- Updated core dependency to `feedex/feedex ^1.0`.
+- Preserved current frozen v1 scope for spot/account/asset/futures-market core modules.
+
+## [0.1.4]
+
 ### Docs
-- Add explicit kucoin v1.0.0 scope freeze notes in README.
+- Added explicit kucoin v1.0.0 scope freeze notes.
+- Aligned changelog entries for pre-v1 release stream.
 
 ## [0.1.3]
 
