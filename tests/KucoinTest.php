@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Feedex\Tests;
 
 use Feedex\Kucoin\v1\Kucoin;
+use Feedex\Kucoin\v1\Modules\Account;
+use Feedex\Kucoin\v1\Modules\Asset;
 use Feedex\Kucoin\v1\Modules\Common;
 use Feedex\Kucoin\v1\Modules\SpotDeal;
 use Feedex\Kucoin\v1\Modules\SpotMarket;
@@ -19,6 +21,8 @@ final class KucoinTest extends TestCase
 
         self::assertSame('kucoin', $client->id());
         self::assertInstanceOf(Common::class, $client->common());
+        self::assertInstanceOf(Account::class, $client->account());
+        self::assertInstanceOf(Asset::class, $client->asset());
         self::assertInstanceOf(SpotMarket::class, $client->spotMarket());
         self::assertInstanceOf(SpotOrder::class, $client->spotOrder());
         self::assertInstanceOf(SpotDeal::class, $client->spotDeal());

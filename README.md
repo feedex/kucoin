@@ -4,6 +4,8 @@ KuCoin adapter package for the Feedex ecosystem.
 
 This package currently provides a focused first vertical slice:
 - Common module
+- Account module
+- Asset spot balance capability
 - Spot market (core)
 - Spot order (core)
 - Spot deal
@@ -35,11 +37,21 @@ $kucoin = $feedex->exchange('kucoin', [
 
 $time = $kucoin->common()->time();
 $markets = $kucoin->spotMarket()->listMarkets();
+$balances = $kucoin->asset()->getSpotBalance();
 ```
+
+## Examples
+
+See runnable scripts in [`examples/`](examples):
+- [`examples/balances.php`](examples/balances.php)
+- [`examples/spot_order.php`](examples/spot_order.php)
+- [`examples/spot_deals.php`](examples/spot_deals.php)
 
 ## Implemented capabilities
 
 - `HasCommonModuleInterface`
+- `HasAccountModuleInterface`
+- `HasAssetSpotBalanceModuleInterface`
 - `HasSpotMarketCoreModuleInterface`
 - `HasSpotOrderCoreModuleInterface`
 - `HasSpotDealModuleInterface`
@@ -50,6 +62,13 @@ $markets = $kucoin->spotMarket()->listMarkets();
 - `ping()`
 - `time()`
 - `maintainInfo()`
+
+### Account (private)
+- `getAccountInfo()`
+- `getTradeFeeRate()`
+
+### Asset Spot Balance (private)
+- `getSpotBalance()`
 
 ### Spot Market Core (public)
 - `listMarkets()`
