@@ -40,10 +40,14 @@ final class KucoinFactory implements ExchangeFactoryInterface
             ? $config['base_url']
             : 'https://api.kucoin.com';
 
+        $futuresBaseUrl = isset($config['futures_base_url']) && is_string($config['futures_base_url'])
+            ? $config['futures_base_url']
+            : 'https://api-futures.kucoin.com';
+
         $timeout = isset($config['timeout']) && is_int($config['timeout'])
             ? $config['timeout']
             : 60;
 
-        return new Kucoin($apiKey, $apiSecret, $apiPassphrase, $baseUrl, $timeout);
+        return new Kucoin($apiKey, $apiSecret, $apiPassphrase, $baseUrl, $futuresBaseUrl, $timeout);
     }
 }

@@ -2,13 +2,14 @@
 
 KuCoin adapter package for the Feedex ecosystem.
 
-This package currently provides a focused first vertical slice:
+This package currently provides a focused incremental slice:
 - Common module
 - Account module
 - Asset spot balance capability
 - Spot market (core)
 - Spot order (core)
 - Spot deal
+- Futures market (core)
 
 ## Installation
 
@@ -33,10 +34,14 @@ $kucoin = $feedex->exchange('kucoin', [
     'api_key' => getenv('KUCOIN_API_KEY'),
     'api_secret' => getenv('KUCOIN_API_SECRET'),
     'api_passphrase' => getenv('KUCOIN_API_PASSPHRASE'),
+    // optional:
+    // 'base_url' => 'https://api.kucoin.com',
+    // 'futures_base_url' => 'https://api-futures.kucoin.com',
 ]);
 
 $time = $kucoin->common()->time();
 $markets = $kucoin->spotMarket()->listMarkets();
+$futures = $kucoin->futuresMarket()->listMarkets();
 $balances = $kucoin->asset()->getSpotBalance();
 ```
 
@@ -55,6 +60,7 @@ See runnable scripts in [`examples/`](examples):
 - `HasSpotMarketCoreModuleInterface`
 - `HasSpotOrderCoreModuleInterface`
 - `HasSpotDealModuleInterface`
+- `HasFuturesMarketCoreModuleInterface`
 
 ## Implemented module methods
 
@@ -89,9 +95,18 @@ See runnable scripts in [`examples/`](examples):
 - `listUserDeals()`
 - `listUserOrderDeals()`
 
+### Futures Market Core (public)
+- `listMarkets()`
+- `listMarketTicker()`
+- `listMarketDepth()`
+- `listMarketDeals()`
+- `listMarketKline()`
+- `listMarketIndex()`
+
 ## Notes
 
-This adapter intentionally starts with core spot capabilities plus spot deal history. Spot market index capability is not added yet because KuCoin spot APIs do not expose a direct index endpoint equivalent in this slice.
+This adapter intentionally expands in small, safe slices. Spot and futures APIs use different base hosts, so this adapter supports separate configuration via `base_url` and `futures_base_url`.
+Spot market index capability is not added yet because KuCoin spot APIs do not expose a direct index endpoint equivalent in this slice.
 Advanced spot/futures/account modules can be added incrementally in future releases.
 
 ## Changelog
