@@ -75,6 +75,10 @@ $markets = $kucoin->spotMarket()->listMarkets();
 This adapter intentionally starts with core spot capabilities plus spot deal history. Spot market index capability is not added yet because KuCoin spot APIs do not expose a direct index endpoint equivalent in this slice.
 Advanced spot/futures/account modules can be added incrementally in future releases.
 
+## Changelog
+
+See [`CHANGELOG.md`](CHANGELOG.md) for release history.
+
 ## License
 
 MIT
