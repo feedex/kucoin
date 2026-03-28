@@ -109,6 +109,21 @@ This adapter intentionally expands in small, safe slices. Spot and futures APIs 
 Spot market index capability is not added yet because KuCoin spot APIs do not expose a direct index endpoint equivalent in this slice.
 Advanced spot/futures/account modules can be added incrementally in future releases.
 
+## v1.0.0 scope freeze (kucoin)
+
+For the first stable adapter release, v1 scope is frozen to:
+
+- current spot core modules (`SpotMarketCore`, `SpotOrderCore`, `SpotDeal`)
+- current account and asset-spot-balance modules
+- current futures market core module
+- dual-host configuration model (`base_url`, `futures_base_url`)
+
+Out of scope for kucoin v1.0.0:
+
+- futures order/deal/position modules
+- websocket feeds
+- breaking renames of public module methods
+
 ## Changelog
 
 See [`CHANGELOG.md`](CHANGELOG.md) for release history.
