@@ -4,6 +4,11 @@ All notable changes to `feedex/kucoin` are documented in this file.
 
 ## [Unreleased]
 
+### Added
+- Account module support (`getAccountInfo`, `getTradeFeeRate`).
+- Asset spot-balance capability support (`getSpotBalance`).
+- Examples folder with balances, spot order, and spot deals scripts.
+
 ### Docs
 - Add changelog to keep releases clear as the plugin evolves.
 

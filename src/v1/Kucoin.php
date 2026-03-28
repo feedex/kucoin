@@ -4,12 +4,16 @@ declare(strict_types=1);
 
 namespace Feedex\Kucoin\v1;
 
+use Feedex\Contracts\Capabilities\HasAccountModuleInterface;
+use Feedex\Contracts\Capabilities\HasAssetSpotBalanceModuleInterface;
 use Feedex\Contracts\Capabilities\HasCommonModuleInterface;
 use Feedex\Contracts\Capabilities\HasSpotDealModuleInterface;
 use Feedex\Contracts\Capabilities\HasSpotMarketCoreModuleInterface;
 use Feedex\Contracts\Capabilities\HasSpotOrderCoreModuleInterface;
 use Feedex\Contracts\ExchangeInterface;
 use Feedex\Kucoin\v1\Http\KucoinHttpClient;
+use Feedex\Kucoin\v1\Modules\Account;
+use Feedex\Kucoin\v1\Modules\Asset;
 use Feedex\Kucoin\v1\Modules\Common;
 use Feedex\Kucoin\v1\Modules\SpotDeal;
 use Feedex\Kucoin\v1\Modules\SpotMarket;
@@ -18,6 +22,8 @@ use Feedex\Kucoin\v1\Modules\SpotOrder;
 final class Kucoin implements
     ExchangeInterface,
     HasCommonModuleInterface,
+    HasAccountModuleInterface,
+    HasAssetSpotBalanceModuleInterface,
     HasSpotMarketCoreModuleInterface,
     HasSpotOrderCoreModuleInterface,
     HasSpotDealModuleInterface
@@ -42,6 +48,16 @@ final class Kucoin implements
     public function common(): Common
     {
         return new Common($this->httpClient);
+    }
+
+    public function account(): Account
+    {
+        return new Account($this->httpClient);
+    }
+
+    public function asset(): Asset
+    {
+        return new Asset($this->httpClient);
     }
 
     public function spotMarket(): SpotMarket
