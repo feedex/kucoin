@@ -4,6 +4,11 @@ All notable changes to `feedex/kucoin` are documented in this file.
 
 ## [Unreleased]
 
+### Docs
+- Add explicit kucoin v1.0.0 scope freeze notes in README.
+
+## [0.1.3]
+
 ### Added
 - Futures market core module support (`FuturesMarket`) with dedicated futures base URL config.
 - `HasFuturesMarketCoreModuleInterface` capability exposure from `Kucoin` client.
