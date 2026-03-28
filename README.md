@@ -19,7 +19,7 @@ composer require feedex/feedex feedex/kucoin
 
 ## Compatibility
 
-- `feedex/kucoin ^0.1` requires `feedex/feedex ^0.1.6`
+- `feedex/kucoin ^1.0` requires `feedex/feedex ^1.0`
 
 ## Usage (via Feedex registry)
 
