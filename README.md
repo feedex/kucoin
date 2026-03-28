@@ -6,6 +6,7 @@ This package currently provides a focused first vertical slice:
 - Common module
 - Spot market (core)
 - Spot order (core)
+- Spot deal
 
 ## Installation
 
@@ -41,6 +42,7 @@ $markets = $kucoin->spotMarket()->listMarkets();
 - `HasCommonModuleInterface`
 - `HasSpotMarketCoreModuleInterface`
 - `HasSpotOrderCoreModuleInterface`
+- `HasSpotDealModuleInterface`
 
 ## Implemented module methods
 
@@ -64,9 +66,14 @@ $markets = $kucoin->spotMarket()->listMarkets();
 - `listPendingOrder()`
 - `listFinishedOrder()`
 
+### Spot Deal (private)
+- `listUserDeals()`
+- `listUserOrderDeals()`
+
 ## Notes
 
-This adapter intentionally starts with core spot capabilities. Advanced spot/futures/account modules can be added incrementally in future releases.
+This adapter intentionally starts with core spot capabilities plus spot deal history. Spot market index capability is not added yet because KuCoin spot APIs do not expose a direct index endpoint equivalent in this slice.
+Advanced spot/futures/account modules can be added incrementally in future releases.
 
 ## License
 
